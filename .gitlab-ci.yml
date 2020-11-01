@@ -15,12 +15,13 @@ build:
     expire_in: 1 hour
 
 deploy:
-  image: python:latest
+  image: python:3.8-slim
   stage: deploy
+  when: manual
   only:
     - master
   script:
-    - pip install awscli
+    - pip install awscli==1.17.13
     - aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID
     - aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY
     - aws s3 rm s3://test-aws-yt-tut2 --recursive
