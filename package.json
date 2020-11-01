@@ -1,6 +1,6 @@
 {
-  "name": "test-aws",
-  "version": "1.0.0",
+  "name": "continous-deployment-spa-application-on-aws-s3-bucket",
+  "version": "1.1.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
