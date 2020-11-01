@@ -1,28 +1,23 @@
-# TestAws
+# Continuous Deployment of SPA on AWS S3
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.1.3.
 
-## Development server
+YouTube video: https://youtu.be/Bv2xX4LQqII
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## What is continuous deployment?
 
-## Code scaffolding
+Continuous deployment is a strategy in software development where code changes to an application are released automatically into the production environment.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Reference: https://www.ibm.com/topics/continuous-deployment
 
-## Build
+## What is single-page application (SPA)?
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+An SPA (Single-page application) is a web app implementation that loads only a single web document, and then updates the body content of that single document via JavaScript APIs such as XMLHttpRequest and Fetch when different content is to be shown. 
 
-## Running unit tests
+Reference: https://developer.mozilla.org/en-US/docs/Glossary/SPA
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## What is Amazon S3?  
 
-## Running end-to-end tests
+Amazon Simple Storage Service (S3) is a storage that can be maintained and accessed over the Internet. Amazon S3 provides a web service that can be used to store and retrieve an unlimited amount of data. It is global by default and buckets are region specified. There are different types of S3 storage, for example S3 Standard, S3 Standard-IA (Infrequent Access) or S3 Intelligent-Tiering.
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
-
+Reference: https://k21academy.com/amazon-web-services/amazon-s3-bucket-and-storage-classes/
