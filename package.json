@@ -8,7 +8,11 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "test:headless": "ng test --progress false --no-watch --code-coverage --browsers=ChromeHeadless",
-    "test:ci": "ng test --progress false --no-watch --code-coverage --browsers=ChromiumHeadlessCI"
+    "test:ci": "ng test --progress false --no-watch --code-coverage --browsers=ChromiumHeadlessCI",
+    "release:ci": "release-it minor --ci --verbose",
+    "release:interactive:minor": "release-it minor",
+    "release:interactive:patch": "release-it patch",
+    "release:interactive:major": "release-it major"
   },
   "private": true,
   "dependencies": {
@@ -36,6 +40,8 @@
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.0.0",
     "karma-junit-reporter": "~2.0.1",
-    "typescript": "~5.0.2"
+    "typescript": "~5.0.2",
+    "release-it": "~15.10.5",
+    "@release-it/conventional-changelog": "~5.1.1"
   }
 }
