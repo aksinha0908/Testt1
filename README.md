@@ -1,8 +1,14 @@
 # Continuous Deployment of SPA on AWS S3
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.1.3.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.0.4.
+
+---
 
 YouTube video: https://youtu.be/Bv2xX4LQqII
+
+AWS S3: <LINK>
+
+Test report: <LINK>
 
 ## What is continuous deployment?
 

@@ -1,13 +1,25 @@
+image: node:16.20.0-slim
+
+before_script:
+  - echo ':before_script'
+  - cat /etc/os-release
+  - npm --version
+  - node --version
+  - npm install
+  - echo 'end :before_script'
+
+cache:
+  untracked: true
+  paths:
+    - node_modules/
+
 stages:
   - build
   - deploy
 
 build:
-  image: node:10.16.0-slim
   stage: build
   script:
-    - npm install -g @angular/cli@7.3.9
-    - npm install
     - npm run build
   artifacts:
     paths:
@@ -18,6 +30,8 @@ deploy:
   image: python:3.8-slim
   stage: deploy
   when: manual
+  before_script:
+    - echo ':before_script'
   only:
     - master
   script:
@@ -26,4 +40,3 @@ deploy:
     - aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY
     - aws s3 rm s3://test-aws-yt-tut2 --recursive
     - aws s3 sync ./dist s3://test-aws-yt-tut2 --acl public-read
-
