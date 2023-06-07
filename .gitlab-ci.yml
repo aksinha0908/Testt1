@@ -76,3 +76,19 @@ aws_cli_v1:
     - aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY
     - aws s3 rm s3://$BUCKET_NAME --recursive
     - aws s3 sync ./dist/$PROJECT_NAME s3://$BUCKET_NAME --acl public-read
+
+# Following variables have to be set:
+# - AWS_ACCESS_KEY_ID
+# - AWS_SECRET_ACCESS_KEY
+# - AWS_DEFAULT_REGION
+# Ref: https://docs.gitlab.com/ee/ci/cloud_deployment/#use-an-image-to-run-aws-commands
+aws_gitlab:
+  image: registry.gitlab.com/gitlab-org/cloud-deploy/aws-base:latest
+  stage: deploy
+  when: manual
+  before_script:
+    - echo ':before_script'
+    - cat /etc/os-release
+  script:
+    - aws s3 rm s3://$BUCKET_NAME --recursive
+    - aws s3 sync ./dist/$PROJECT_NAME s3://$BUCKET_NAME --acl public-read

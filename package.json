@@ -10,8 +10,8 @@
     "test:headless": "ng test --progress false --no-watch --code-coverage --browsers=ChromeHeadless",
     "test:ci": "ng test --progress false --no-watch --code-coverage --browsers=ChromiumHeadlessCI",
     "release:ci": "release-it minor --ci --verbose",
-    "release:interactive:minor": "release-it minor",
     "release:interactive:patch": "release-it patch",
+    "release:interactive:minor": "release-it minor",
     "release:interactive:major": "release-it major"
   },
   "private": true,
