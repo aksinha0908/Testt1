@@ -15,7 +15,9 @@ cache:
 
 variables:
   UNIT_TESTS_PUBLIC_FOLDER: "public/unit-tests"
-  UNIT_TEST_ANGULAR_FOLDER: "coverage/continuous-deployment-spa-on-aws"
+  PROJECT_NAME: "continuous-deployment-spa-on-aws"
+  UNIT_TEST_ANGULAR_FOLDER: "coverage/$PROJECT_NAME"
+  BUCKET_NAME: "aws-spa-tutorial"
 
 stages:
   - test
@@ -60,17 +62,17 @@ pages:
   only:
     - master
 
-aws:
+aws_cli_v1:
   image: python:3.8-slim
   stage: deploy
   when: manual
   before_script:
     - echo ':before_script'
-  only:
-    - master
+    - python --version
+    - pip --version
   script:
-    - pip install awscli==1.17.13
+    - pip install awscli==1.27.148
     - aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID
     - aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY
-    - aws s3 rm s3://test-aws-yt-tut2 --recursive
-    - aws s3 sync ./dist s3://test-aws-yt-tut2 --acl public-read
+    - aws s3 rm s3://$BUCKET_NAME --recursive
+    - aws s3 sync ./dist/$PROJECT_NAME s3://$BUCKET_NAME --acl public-read
