@@ -13,9 +13,27 @@ cache:
   paths:
     - node_modules/
 
+variables:
+  UNIT_TESTS_PUBLIC_FOLDER: "public/unit-tests"
+  UNIT_TEST_ANGULAR_FOLDER: "coverage/continuous-deployment-spa-on-aws"
+
 stages:
+  - test
   - build
   - deploy
+
+test:
+  image: timbru31/node-chrome:16-alpine
+  script:
+    - npm run test:ci
+  coverage: '/Statements\s+:\s(\d+.\d+)%/'
+  artifacts:
+    paths:
+      - $UNIT_TEST_ANGULAR_FOLDER
+    expire_in: 1 hour
+    reports:
+      junit:
+        - Chrome_Headless_114.0.5735.106_(Linux_x86_64)/junit.xml
 
 build:
   stage: build
@@ -26,7 +44,23 @@ build:
       - dist/
     expire_in: 1 hour
 
-deploy:
+pages:
+  stage: deploy
+  script:
+    - echo 'Cleaning old pages'
+    - rm -rf public
+    - ls -la
+    - mkdir -p $UNIT_TESTS_PUBLIC_FOLDER && cp -r $UNIT_TEST_ANGULAR_FOLDER/* $UNIT_TESTS_PUBLIC_FOLDER
+    - echo 'Public directory content after copying files'
+    - ls -la ./public
+  artifacts:
+    paths:
+      - public
+    expire_in: 1 hour
+  only:
+    - master
+
+aws:
   image: python:3.8-slim
   stage: deploy
   when: manual

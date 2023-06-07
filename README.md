@@ -4,11 +4,13 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ---
 
-YouTube video: https://youtu.be/Bv2xX4LQqII
+📺 YouTube video: https://youtu.be/Bv2xX4LQqII
 
-AWS S3: <LINK>
+📊 Test report: https://showmeyourcodeyoutube.gitlab.io/continuous-deployment-spa-application-on-aws-s3/unit-tests/index.html
 
-Test report: <LINK>
+📄 AWS S3: <LINK>
+
+🔴 AWS Service Status: https://downdetector.com.au/status/aws-amazon-web-services/
 
 ## What is continuous deployment?
 
@@ -27,3 +29,10 @@ Reference: https://developer.mozilla.org/en-US/docs/Glossary/SPA
 Amazon Simple Storage Service (S3) is a storage that can be maintained and accessed over the Internet. Amazon S3 provides a web service that can be used to store and retrieve an unlimited amount of data. It is global by default and buckets are region specified. There are different types of S3 storage, for example S3 Standard, S3 Standard-IA (Infrequent Access) or S3 Intelligent-Tiering.
 
 Reference: https://k21academy.com/amazon-web-services/amazon-s3-bucket-and-storage-classes/
+
+## Angular notes
+
+- Generate Karma configuration
+```
+ng generate config karma
+```

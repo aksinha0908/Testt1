@@ -14,16 +14,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'continous-deployment-spa-on-aws'`, () => {
+  it(`should have as title 'Continuous Deployment of SPA on AWS S3'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('continous-deployment-spa-on-aws');
+    expect(app.title).toEqual('Continuous Deployment of SPA on AWS S3');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('continous-deployment-spa-on-aws app is running!');
+    expect(compiled.querySelector('.content span')?.textContent).toContain('Continuous Deployment of SPA on AWS S3 app is running!');
   });
 });
