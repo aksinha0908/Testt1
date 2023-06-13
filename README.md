@@ -10,7 +10,9 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 📄 AWS S3: http://aws-spa-tutorial.s3-website.eu-central-1.amazonaws.com
 
-🔴 AWS Service Status: https://downdetector.com.au/status/aws-amazon-web-services/
+🔴 AWS Service Status:
+- https://health.aws.amazon.com/health/status
+- https://downdetector.com.au/status/aws-amazon-web-services/
 
 ## What is continuous deployment?
 
